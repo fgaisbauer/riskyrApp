@@ -16,10 +16,9 @@ library("DT")
 library("colourpicker")
 library("vcd")
 
-## Install the currently included version of riskyr: ------
+## Testing with riskyr version 0.1.0913 ------
 # detach("package:riskyr", unload = TRUE)
 # devtools::install_github("hneth/riskyr")
-# install.packages("./riskyr_0.1.0.tar.gz", repos = NULL, type = "source")
 library("riskyr")
 # sessionInfo()
 
