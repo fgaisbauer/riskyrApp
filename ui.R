@@ -210,6 +210,27 @@ shinyUI(
                                                           )
                                                  ),
                                                  #####
+                                                 # Bars (testing)
+                                                 tabPanel("Bars",
+                                                          br(),
+                                                          fluidRow(
+                                                              column(8, offset = 2, plotOutput("bars", width = "550", height = "550"))),
+                                                          br(),
+                                                          wellPanel(
+                                                              fluidRow(
+                                                                  column(5, offset = 0,
+                                                                         radioButtons("barby", "Build bars by", c("Condition first" = "cd",
+                                                                                                                  "Decision first" = "dc",
+                                                                                                                  "Accuracy first" = "ac"), inline = TRUE)),
+                                                                  column(5,
+                                                                         radioButtons("barsf_lbl", "Frequency labels", c("Name" = "nam", 
+                                                                                                                         "Numeric value" = "num",
+                                                                                                                         "None" = "no"), inline = TRUE)),
+                                                                  column(2, downloadButton("barsdl", label = "Save Bars"))
+                                                              )
+                                                          )
+                                                 ),
+                                                 #####
                                                  # Cases
                                                  tabPanel("Table", 
                                                           br(),

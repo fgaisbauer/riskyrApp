@@ -600,7 +600,28 @@ shinyServer(function(input, output, session){
       dev.off()}
     )
 
+  ## Bars (test):
+  
+  bars <- function(){
+      plot_bar(prev = env$prev, sens = env$sens, spec = env$spec, N = env$N, 
+               by = input$barby, dir = 1, scale = "f",
+               f_lbl = input$barsf_lbl, 
+               round = TRUE, f_lwd = 0.001, title_lbl = cus$scenario.txt,
+               col_pal = pal, show_freq = TRUE, show_prob = TRUE, show_accu = TRUE,
+               w_acc = 0.5)
+  }
+  
+  output$bars <- renderPlot({ bars() })
 
+  output$barsdl <- downloadHandler(
+      filename = function() {paste0("riskyrApp_bars_", gsub(":", "-", Sys.time()), ".png")},
+      content =  function(file){
+          png(file, width = 550, height = 550)
+          bars()
+          dev.off()}
+      )
+  
+  
   ## (a) Raw data table: 
   
   rawdata <- function(){
